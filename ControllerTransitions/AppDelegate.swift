@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        setInitialViewController()
         return true
     }
 
@@ -40,7 +42,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func setInitialViewController() {
+
+        let aVC: ViewControllerA = ViewControllerA(nibName: "ViewControllerA", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: aVC)
+        navigationController.navigationBar.barTintColor = UIColor.black
+        navigationController.isNavigationBarHidden = true
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        
+    }
 
 
 }
+
+
+
+
 
